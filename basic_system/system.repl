@@ -1,0 +1,12 @@
+nvic: IRQControllers.NVIC @ sysbus 0xE000E000
+
+cpu: CPU.CortexM @ sysbus
+    cpuType: "cortex-m4"
+        nvic: nvic
+
+flash: Memory.MappedMemory @sysbus 0x00000000
+    size: 0x200000
+
+rom: Memory.MappedMemory @sysbus 0x400000000
+    size: 0x00040000
+

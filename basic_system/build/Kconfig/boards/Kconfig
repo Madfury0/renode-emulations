@@ -1,0 +1,2 @@
+# Load Zephyr board Kconfig descriptions.
+osource "/home/madfury/zephyr/zephyr/boards/st/stm32f4_disco/Kconfig"

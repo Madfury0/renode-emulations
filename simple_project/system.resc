@@ -1,0 +1,44 @@
+: name : multi-system comms
+: Description: This project will have two machines sharing data via UART. Machine A will be the master and B will be the slave. Machine A will be based on arduino nano 33 BLE. Machine B will be be designed from scratch using arm-cortex cpu.
+
+emulation CreateUARTHub "serial"
+emulation CreateUartPtyTerminal "term" "/tmp/uart"
+
+using sysbus
+
+$masterBin?=@master/build/arduino.mbed_nano.nano33ble/master.ino.elf
+$SlaveBin?=@slave/build/firmware.elf
+$ObserverBin?=@observer/build/firmware.elf
+
+mach create "master"
+machine LoadPlatformDescription @master.repl
+connector Connect sysbus.uart0 serial
+connector Connect sysbus.uart0 term
+
+mach create "slave"
+machine LoadPlatformDescription @slave.repl
+connector Connect sysbus.uart serial
+connector Connect sysbus.uart term
+showAnalyzer uart
+
+mach create "observer"
+machine LoadPlatformDescription @observer.repl
+connector Connect sysbus.uart serial
+connector Connect sysbus.uart term
+showAnalyzer uart
+
+macro reset
+"""
+    mach set "master"
+    sysbus LoadELF $masterBin
+
+    mach set "slave"
+    sysbus LoadELF $SlaveBin
+
+    mach set "observer"
+    sysbus LoadELF $ObserverBin
+"""
+runMacro $reset
+
+machine StartGdbServer 5555
+

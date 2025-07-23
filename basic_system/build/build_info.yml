@@ -1,0 +1,58 @@
+cmake:
+  application:
+    configuration-dir: '/home/madfury/zephyr/zephyr/samples/basic/blinky'
+    source-dir: '/home/madfury/zephyr/zephyr/samples/basic/blinky'
+  board:
+    name: 'stm32f4_disco'
+    path:
+     - '/home/madfury/zephyr/zephyr/boards/st/stm32f4_disco'
+    qualifiers: 'stm32f407xx'
+    revision: ''
+  devicetree:
+    bindings-dirs:
+     - '/home/madfury/zephyr/zephyr/dts/bindings'
+    files:
+     - '/home/madfury/zephyr/zephyr/boards/st/stm32f4_disco/stm32f4_disco.dts'
+    include-dirs:
+     - '/home/madfury/zephyr/modules/hal/ambiq/dts'
+     - '/home/madfury/zephyr/modules/hal/atmel/include'
+     - '/home/madfury/zephyr/modules/hal/bouffalolab/include'
+     - '/home/madfury/zephyr/modules/hal/bouffalolab/include/zephyr'
+     - '/home/madfury/zephyr/modules/hal/gigadevice/include'
+     - '/home/madfury/zephyr/modules/hal/microchip/include'
+     - '/home/madfury/zephyr/modules/hal/microchip/dts'
+     - '/home/madfury/zephyr/modules/hal/nuvoton/dts'
+     - '/home/madfury/zephyr/modules/hal/nxp/dts'
+     - '/home/madfury/zephyr/modules/hal/stm32/dts'
+     - '/home/madfury/zephyr/modules/hal/ti/dts'
+     - '/home/madfury/zephyr/zephyr/include'
+     - '/home/madfury/zephyr/zephyr/include/zephyr'
+     - '/home/madfury/zephyr/zephyr/dts/common'
+     - '/home/madfury/zephyr/zephyr/dts/vendor'
+     - '/home/madfury/zephyr/zephyr/dts/rx'
+     - '/home/madfury/zephyr/zephyr/dts/x86'
+     - '/home/madfury/zephyr/zephyr/dts/xtensa'
+     - '/home/madfury/zephyr/zephyr/dts/sparc'
+     - '/home/madfury/zephyr/zephyr/dts/riscv'
+     - '/home/madfury/zephyr/zephyr/dts/posix'
+     - '/home/madfury/zephyr/zephyr/dts/arm64'
+     - '/home/madfury/zephyr/zephyr/dts/arm'
+     - '/home/madfury/zephyr/zephyr/dts/arc'
+     - '/home/madfury/zephyr/zephyr/dts'
+  kconfig:
+    files:
+     - '/home/madfury/zephyr/zephyr/boards/st/stm32f4_disco/stm32f4_disco_defconfig'
+     - '/home/madfury/zephyr/zephyr/samples/basic/blinky/prj.conf'
+    user-files:
+     - '/home/madfury/zephyr/zephyr/samples/basic/blinky/prj.conf'
+  toolchain:
+    name: 'zephyr'
+    path: '/home/madfury/.local/opt/zephyr-sdk-0.17.2'
+  zephyr:
+    version: '4.2.0-rc3'
+    zephyr-base: '/home/madfury/zephyr/zephyr'
+version: '0.1.0'
+west:
+  command: '/home/madfury/zephyr/.venv/bin/west build -p always -b stm32f4_disco /home/madfury/zephyr/zephyr/samples/basic/blinky'
+  topdir: '/home/madfury/zephyr'
+  version: '1.4.0'

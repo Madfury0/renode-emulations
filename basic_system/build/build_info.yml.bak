@@ -1,0 +1,4 @@
+west:
+  command: /home/madfury/zephyr/.venv/bin/west build -p always -b stm32f4_disco /home/madfury/zephyr/zephyr/samples/basic/blinky
+  topdir: /home/madfury/zephyr
+  version: 1.4.0

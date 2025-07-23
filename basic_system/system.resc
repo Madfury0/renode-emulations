@@ -1,0 +1,18 @@
+:name: custom arm board
+:description: This script blinks an led
+
+$bin?=@blinky.bin
+$system?=@system.repl
+
+mach create "led_blink"
+
+using sysbus
+
+machine LoadPlatformDescription $system
+
+macro reset
+"""
+    sysbus LoadBIN $bin 0x00000
+"""
+
+runMacro $reset
