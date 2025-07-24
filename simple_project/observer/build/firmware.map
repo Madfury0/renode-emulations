@@ -53,55 +53,55 @@ END GROUP
  .isr_vector    0x80000000        0x8 build/startup.o
                 0x80000000                vector_table
 
-.text           0x80000008      0x1d4
+.text           0x80000008      0x234
  *(.text*)
  .text.main     0x80000008       0x3c build/main.o
                 0x80000008                main
  .text.Reset_Handler
-                0x80000044       0x5c build/startup.o
+                0x80000044       0x74 build/startup.o
                 0x80000044                Reset_Handler
  .text.uart_init
-                0x800000a0       0x80 build/uart.o
-                0x800000a0                uart_init
+                0x800000b8       0xc8 build/uart.o
+                0x800000b8                uart_init
  .text.uart_tx_fifo_full
-                0x80000120       0x1c build/uart.o
-                0x80000120                uart_tx_fifo_full
+                0x80000180       0x1c build/uart.o
+                0x80000180                uart_tx_fifo_full
  .text.uart_rx_fifo_empty
-                0x8000013c       0x1c build/uart.o
-                0x8000013c                uart_rx_fifo_empty
+                0x8000019c       0x1c build/uart.o
+                0x8000019c                uart_rx_fifo_empty
  .text.uart_putc
-                0x80000158       0x28 build/uart.o
-                0x80000158                uart_putc
+                0x800001b8       0x28 build/uart.o
+                0x800001b8                uart_putc
  .text.uart_getc
-                0x80000180       0x20 build/uart.o
-                0x80000180                uart_getc
+                0x800001e0       0x20 build/uart.o
+                0x800001e0                uart_getc
  .text.uart_puts
-                0x800001a0       0x2a build/uart.o
-                0x800001a0                uart_puts
+                0x80000200       0x2a build/uart.o
+                0x80000200                uart_puts
  *(.rodata*)
- *fill*         0x800001ca        0x2 
- .rodata        0x800001cc       0x10 build/main.o
-                0x800001dc                        _etext = .
+ *fill*         0x8000022a        0x2 
+ .rodata        0x8000022c       0x10 build/main.o
+                0x8000023c                        _etext = .
 
-.glue_7         0x800001dc        0x0
- .glue_7        0x800001dc        0x0 linker stubs
+.glue_7         0x8000023c        0x0
+ .glue_7        0x8000023c        0x0 linker stubs
 
-.glue_7t        0x800001dc        0x0
- .glue_7t       0x800001dc        0x0 linker stubs
+.glue_7t        0x8000023c        0x0
+ .glue_7t       0x8000023c        0x0 linker stubs
 
-.vfp11_veneer   0x800001dc        0x0
- .vfp11_veneer  0x800001dc        0x0 linker stubs
+.vfp11_veneer   0x8000023c        0x0
+ .vfp11_veneer  0x8000023c        0x0 linker stubs
 
-.v4_bx          0x800001dc        0x0
- .v4_bx         0x800001dc        0x0 linker stubs
+.v4_bx          0x8000023c        0x0
+ .v4_bx         0x8000023c        0x0 linker stubs
 
-.iplt           0x800001dc        0x0
- .iplt          0x800001dc        0x0 build/main.o
+.iplt           0x8000023c        0x0
+ .iplt          0x8000023c        0x0 build/main.o
 
-.rel.dyn        0x800001dc        0x0
- .rel.iplt      0x800001dc        0x0 build/main.o
+.rel.dyn        0x8000023c        0x0
+ .rel.iplt      0x8000023c        0x0 build/main.o
 
-.data           0x20000000        0x0 load address 0x800001dc
+.data           0x20000000        0x0 load address 0x8000023c
                 0x20000000                        _sdata = .
  *(.data*)
                 0x20000000                        _edata = .
@@ -117,15 +117,15 @@ END GROUP
 OUTPUT(build/firmware.elf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x00000000      0x4aa
+.debug_info     0x00000000      0x4b3
  .debug_info    0x00000000       0xec build/main.o
  .debug_info    0x000000ec      0x13d build/startup.o
- .debug_info    0x00000229      0x281 build/uart.o
+ .debug_info    0x00000229      0x28a build/uart.o
 
-.debug_abbrev   0x00000000      0x2a8
+.debug_abbrev   0x00000000      0x28f
  .debug_abbrev  0x00000000       0xa6 build/main.o
  .debug_abbrev  0x000000a6       0xde build/startup.o
- .debug_abbrev  0x00000184      0x124 build/uart.o
+ .debug_abbrev  0x00000184      0x10b build/uart.o
 
 .debug_aranges  0x00000000       0xc8
  .debug_aranges
@@ -144,16 +144,16 @@ LOAD linker stubs
  .debug_rnglists
                 0x0000002c       0x5c build/uart.o
 
-.debug_line     0x00000000      0x3ed
+.debug_line     0x00000000      0x3f8
  .debug_line    0x00000000       0xc1 build/main.o
- .debug_line    0x000000c1       0xdd build/startup.o
- .debug_line    0x0000019e      0x24f build/uart.o
+ .debug_line    0x000000c1       0xe7 build/startup.o
+ .debug_line    0x000001a8      0x250 build/uart.o
 
-.debug_str      0x00000000      0x2ec
- .debug_str     0x00000000      0x2ec build/main.o
+.debug_str      0x00000000      0x2f2
+ .debug_str     0x00000000      0x2f2 build/main.o
                                 0x19c (size before relaxing)
- .debug_str     0x000002ec      0x1d0 build/startup.o
- .debug_str     0x000002ec      0x2d4 build/uart.o
+ .debug_str     0x000002f2      0x1d0 build/startup.o
+ .debug_str     0x000002f2      0x2da build/uart.o
 
 .comment        0x00000000       0x1e
  .comment       0x00000000       0x1e build/main.o

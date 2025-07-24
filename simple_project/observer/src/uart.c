@@ -8,15 +8,13 @@ void uart_init(uint32_t uart_clk, uint32_t baud_rate) {
     REG(UARTICR) = 0x7FF;
     
     // Set baud rate
-    /*
     float divisor = (float)uart_clk / (16.0f * baud_rate);
     uint32_t ibrd = (uint32_t)divisor;
     uint32_t fbrd = (uint32_t)((divisor - ibrd) * 64 + 0.5f);
-    */
 
-    int divisor = (int)uart_clk / (16 * baud_rate);
-    uint32_t ibrd = (uint32_t)divisor;
-    uint32_t fbrd = (uint32_t)((divisor - ibrd) * 64 + 1);
+    // int divisor = (int)uart_clk / (16 * baud_rate);
+    // uint32_t ibrd = (uint32_t)divisor;
+    // uint32_t fbrd = (uint32_t)((divisor - ibrd) * 64 + 1);
     
     REG(UARTIBRD) = ibrd;
     REG(UARTFBRD) = fbrd;
