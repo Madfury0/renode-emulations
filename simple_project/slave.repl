@@ -1,5 +1,5 @@
 cpu: CPU.CortexM @ sysbus
-    cpuType: "cortex-m4"
+    cpuType: "cortex-m4f"
     nvic: nvic
 
 nvic: IRQControllers.NVIC @ sysbus 0xE000E000
